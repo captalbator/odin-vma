@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.5.0)
 project(engine VERSION 0.1.0 LANGUAGES C CXX)
 
+set(CMAKE_CXX_STANDARD 17)
+
 find_package(Vulkan REQUIRED)
 
 include(FetchContent)
@@ -31,6 +33,7 @@ add_custom_command(
 target_include_directories(vma
   PUBLIC
     ${vulkanmemoryallocator_SOURCE_DIR}/src
+    ${vulkanmemoryallocator_SOURCE_DIR}/include
     ${VulkanHeaders_INCLUDE_DIR}
 )
 target_link_libraries(vma PUBLIC Vulkan::Vulkan)
