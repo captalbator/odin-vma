@@ -9,9 +9,9 @@ import vk "vendor:vulkan"
 when ODIN_OS == .Windows {
 	foreign import vma {"./lib/vma.lib", "system:msvcrt.lib", "system:libcmt.lib"}
 } else when ODIN_OS == .Darwin {
-	// TODO(Capati): no mac/os libs yet!
+	foreign import vma {"lib/libvma-darwin.a", "system:stdc++"}
 } else when ODIN_OS == .Linux {
-	foreign import vma {"lib/libvma.a", "system:stdc++"}
+	foreign import vma {"lib/libvma-linux.a", "system:stdc++"}
 } else {
 	foreign import vma "system:vma"
 }
